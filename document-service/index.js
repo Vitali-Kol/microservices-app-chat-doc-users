@@ -30,5 +30,5 @@ app.post('/update-document', async (req, res) => {
     res.json(updated);
 });
 app.listen(8002, () => {
-    console.log("Сервис документов запущен");
+    console.log("сервис документов запущен");
 });

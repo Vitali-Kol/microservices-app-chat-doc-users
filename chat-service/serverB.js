@@ -5,18 +5,18 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const client = redis.createClient({ url: 'redis://localhost:6380' });
-const subscriber = client.duplicate();
+const subscriber = redis.createClient({ url: 'redis://localhost:6380' });
 async function startSubscriber() {
     await client.connect();
     await subscriber.connect();
     await subscriber.subscribe('chat_channel', (message) => {
-        console.log("Server B:  сообщение из PubSub: " + message);
+        console.log("Server B:  сообщение из чата: " + message);
         client.lPush('chat_history', message);
     });
 }
 startSubscriber();
-app.get('/get-history', async (request, response) => {
-    const history = await client.lRange('chat_history', 0, 15);
+app.get('/get-history', async (response) => {
+    const history = await client.lRange('chat_history', 0, -1);
     response.json(history);
 });
 app.listen(8004, () => {

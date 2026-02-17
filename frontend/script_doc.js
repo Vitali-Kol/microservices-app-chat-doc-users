@@ -41,4 +41,5 @@ async function updateDocumentContent() {
     documentIdInput.value = "";
     contentInput.value = "";
 }
+
 loadAllDocuments();

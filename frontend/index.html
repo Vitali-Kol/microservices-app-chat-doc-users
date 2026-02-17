@@ -2,40 +2,37 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Управление пользователями и документами</title>
 </head>
 <body>
-
     <h2>Регистрация</h2>
     <input id="regEmail" type="email" placeholder="Email">
     <input id="regPass" type="password" placeholder="Пароль">
     <button onclick="register()">Создать аккаунт</button>
-
     <hr>
-
     <h2>Вход в систему</h2>
     <input id="loginEmail" type="email" placeholder="Email">
     <input id="loginPass" type="password" placeholder="Пароль">
     <button onclick="login()">Войти</button>
-
     <h3 id="statusMessage"></h3>
-
     <hr>
-
     <h2>Создать новый документ</h2>
     <input id="createTitle" type="text" placeholder="Заголовок">
     <input id="createContent" type="text" placeholder="Текст">
     <button onclick="createNewDocument()">Сохранить</button>
-
     <h2>Редактировать по ID</h2>
     <input id="editId" type="text" placeholder="Введите ID документа">
     <input id="editContent" type="text" placeholder="Новый текст">
     <button onclick="updateDocumentContent()">Обновить текст</button>
-
     <h2>Список документов</h2>
     <button onclick="loadAllDocuments()">Обновить список</button>
     <div id="displayArea"></div>
-
+    <h1>чат</h1>
+    <div id="messagesList"></div>
+    <br>
+    <input id="userNameInput" type="text" placeholder="Имя">
+    <input id="userMessageInput" type="text" placeholder="Сообщение">
+    <button onclick="publishMessage()">Отправить</button>
+    <script src="chat-script.js"></script>
     <script src="user-script.js"></script>
     <script src="script_doc.js"></script>
 </body>
